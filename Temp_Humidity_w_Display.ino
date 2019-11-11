@@ -43,7 +43,7 @@ void handle_root() {
  
 void setup(void)
 {
-  lcd.init();   // initializing the LCD
+  lcd.begin();   // initializing the LCD
   lcd.backlight();
   Serial.begin(115200);
   dht.begin(); // initialize temperature sensor
