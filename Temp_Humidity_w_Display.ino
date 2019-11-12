@@ -110,7 +110,7 @@ void gettemperature() {
     previousMillis = currentMillis;   
     humidity = dht.readHumidity();          // Read humidity (percent)
     temp_f = dht.readTemperature(true);     // Read temperature as Fahrenheit
-    //temp_f = dht.readTemperature(false);     // Read temperature as Celsius
+    //temp_f = dht.readTemperature();     // Read temperature as Celsius
     if (isnan(humidity) || isnan(temp_f)) {
       humidity=0;
       temp_f=0;
