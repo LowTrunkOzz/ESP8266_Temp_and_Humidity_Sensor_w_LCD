@@ -24,7 +24,7 @@ Sensor Config
 #include <ESP8266mDNS.h>
 #include <Wire.h>  // This library is already built in to the Arduino IDE
 #include <LiquidCrystal_I2C.h> //This library you can add via Include Library > Manage Library > 
-LiquidCrystal_I2C lcd(0x3F, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 #include "config.h"
 
 
