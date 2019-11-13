@@ -6,8 +6,8 @@ If you feel display is not showing anything, please take a screwdriver and updat
 using I2C potentiometer in back of LCD
 
 LCD config
-  SDA pin - D2
-  SCL pin - D1
+  SDA pin - D1
+  SCL pin - D2
   VCC Pin - 5v
   
   
@@ -34,7 +34,7 @@ float humidity, temp_f;  // Values read from sensor
 
 String webString="";   
 unsigned long previousMillis = 0;        // will store last temp was read
-const long interval = 300000;              // interval at which to read sensor 5 minutes here
+const long interval = 300000;            // interval at which to read sensor, 5 minutes here
  
 void handle_root() {
   server.send(200, "text/plain", "Welcome to weather server, open /temp, /humidity or /api");
@@ -96,7 +96,7 @@ void loop(void)
   gettemperature();
   lcd.setCursor(0, 0);
   String hs="Humidity: "+String((int)humidity)+" % ";
-  String ts="Temp: "+String((int)temp_f)+" F ";
+  String ts="Temp: "+String((int)temp_f)+"\xDF"" F ";
   lcd.setCursor(0, 0);
   lcd.print(ts);
   lcd.setCursor(0, 1);
@@ -110,7 +110,7 @@ void gettemperature() {
     previousMillis = currentMillis;   
     humidity = dht.readHumidity();          // Read humidity (percent)
     temp_f = dht.readTemperature(true);     // Read temperature as Fahrenheit
-    //temp_f = dht.readTemperature(false);     // Read temperature as Celsius
+    //temp_f = dht.readTemperature();       // Read temperature as Celsius
     if (isnan(humidity) || isnan(temp_f)) {
       humidity=0;
       temp_f=0;
