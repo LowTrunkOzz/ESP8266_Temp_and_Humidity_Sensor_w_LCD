@@ -68,7 +68,7 @@ void setup(void)
   
   server.on("/temp", [](){  
     gettemperature();       // read sensor
-    webString="Temperature: "+String((int)temp_f)+"° Fahrenheit";
+    webString="Temperature: "+String((int)temp_f)+" Fahrenheit";
     server.send(200, "text/plain", webString);
   });
 
@@ -96,7 +96,7 @@ void loop(void)
   gettemperature();
   lcd.setCursor(0, 0);
   String hs="Humidity: "+String((int)humidity)+" % ";
-  String ts="Temp: "+String((int)temp_f)+"° F ";
+  String ts="Temp: "+String((int)temp_f)+" F ";
   lcd.setCursor(0, 0);
   lcd.print(ts);
   lcd.setCursor(0, 1);
